@@ -2,10 +2,10 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-  document.querySelector('id_formulario').addEventListener('submit', (evento)=> {
-    evento.preventDefault();
-        location.href = "./index.html";
-    return true;
-})
-
+   document.getElementById("userinfo").addEventListener("submit", (evento)=> {
+       evento.preventDefault();
+       location.href = "index.html";
+       sessionStorage.setItem("logged") = true;
+       return true;
+   })
 });

@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             let categoryNameHTML  = document.getElementById("categoryName");
             let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
+            let productsoldCountHTML = document.getElementById("productsoldCount");
             let productCriteriaHTML = document.getElementById("productCriteria");
         
             categoryNameHTML.innerHTML = category.name;
             categoryDescriptionHTML.innerHTML = category.description;
-            productCountHTML.innerHTML = category.productCount;
+            productsoldCountHTML.innerHTML = category.productsoldCount;
             productCriteriaHTML.innerHTML = category.productCriteria;
 
             //Muestro las imagenes en forma de galería
