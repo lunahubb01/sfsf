@@ -4,8 +4,8 @@
 document.addEventListener("DOMContentLoaded", function(e){
    document.getElementById("userinfo").addEventListener("submit", (evento)=> {
        evento.preventDefault();
-       location.href = "index.html";
-       sessionStorage.setItem("logged") = true;
+       window.location.href = "index.html";
+       sessionStorage.setItem("logueado",true);
        return true;
    })
 });
