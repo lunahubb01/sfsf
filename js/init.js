@@ -13,7 +13,11 @@ var showSpinner = function(){
 
 var hideSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "none";
+
 }
+
+
+
 
 var getJSONData = function(url){
     var result = {};
@@ -31,14 +35,27 @@ var getJSONData = function(url){
           result.data = response;
           hideSpinner();
           return result;
+
+
     })
     .catch(function(error) {
         result.status = 'error';
         result.data = error;
         hideSpinner();
         return result;
+
+
     });
-}
+
+   
+  
+    };
+
+   
+      
+    
+
+
 
 if(
   !window.location.href.endsWith("login.html") &&
@@ -52,4 +69,8 @@ if(
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
-});
+}); 
+
+
+
+
