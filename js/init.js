@@ -45,11 +45,8 @@ var getJSONData = function(url){
         return result;
 
 
-    });
-
-   
-  
-    };
+    });  
+};
 
    
       
@@ -63,12 +60,31 @@ if(
       window.location.href="login.html"
   }
 
-  
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
+var username = document.getElementById("userbox")
+var pw= document.getElementById("passwordLA")
+
+function Store() {
+  localStorage.setItem("user", username.value);
+  localStorage.setItem("pw", pw.value);
+}
+
+function MyFunction(){
+  var x= localStorage.getItem("user") 
+  document.getElementById("arriba").innerHTML =  x;
+}
+
+document.addEventListener("submit", function(e){
+  Store();
+});
+
+
 document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("cosita").innerHTML += `<a class="py-2 d-none d-md-inline-block" id="arriba" href="#"</a>`
+  MyFunction();
 }); 
 
 
