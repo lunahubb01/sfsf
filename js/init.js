@@ -48,12 +48,6 @@ var getJSONData = function(url){
     });  
 };
 
-   
-      
-    
-
-
-
 if(
   !window.location.href.endsWith("login.html") &&
   sessionStorage.getItem("logueado") !== "true") {
