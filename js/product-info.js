@@ -1,5 +1,9 @@
 var product = {};
 
+let element = document.getElementById("coments")
+
+var estrellas = ``
+
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -25,8 +29,10 @@ function showImagesGallery(array){
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
+      
         {
-
+            let productoActual = getQueryVariable("Prod");
+           
             product = resultObj.data;
 
             let productNameHTML  = document.getElementById("productName");
@@ -39,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
         
-            productNameHTML.innerHTML = product.name;
+            productNameHTML.innerHTML = productoActual.replace(/%20/g, " ");
             productDescriptionHTML.innerHTML = product.description;
             productsoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML = product.currency +  + product.cost;
@@ -61,36 +67,117 @@ document.addEventListener("DOMContentLoaded", function(e){
         .then(response => response.json()) 
         .then(data => {
          
-        let element = document.getElementById("coments")
-            console.log(data)
+            
         for (let i = 0; i < data.length; i++) {
 
-          element.innerHTML += ` 
+            for (let j = 0; j < data[i].score; j++){
+                estrellas = estrellas+`<span class="fa fa-star checked"></span>`
+                console.log(data.score)
 
+            }
+    
+            for (let j = 0; j < 5-data[i].score; j++){
+                estrellas = estrellas+`<span class="fa fa-star"></span>`
+            
+            }
+            
+
+          element.innerHTML += ` 
         
         
         <p>Usuario: ${data[i].user}</p>
-        <p>Puntuación: ${data[i].score}</p>
+        <p>Puntuación: `+ estrellas +`</p>
         <p>${data[i].description}</p>
         <p>Fecha: ${data[i].dateTime}</p>
-
-        <br />
-
+        <br>
         `
+        estrellas = ``
+        
 
-               
         
 
         }
       
-        
     })
    
       
                 
               
       
-            });
+    });
+    
+    function estrellitas(vacias, llenas){
+        for (let j = 0; j < llenas; j++){
+            estrellas = estrellas+`<span class="fa fa-star checked"></span>`
+            
+
+        }
+
+
+        for (let j = 0; j < vacias; j++){
+            estrellas = estrellas+`<span class="fa fa-star"></span>`
+        
+        }
+        return estrellas;
+    }
+
+    var user = localStorage.getItem("user") 
+    
+    document.getElementById("user1").innerHTML += user;
+
+    document.getElementById("boton2").addEventListener('click', (event)=>{
+        var textarea = document.getElementById("cuerpo").value;
+        
+        let hoy = new Date();
+        let fecha = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDate() + ' ' + hoy.getHours() + ':' +
+        hoy.getMinutes() + ':' + hoy.getSeconds();
+        let punt = document.getElementById("punt").value;
+
+        let estrellitasvacias = 5-punt;
+
+        estrellitas(estrellitasvacias, punt);
+
+        
+       console.log(estrellas)
+        element.innerHTML += ` 
+        
+        <p>Usuario: ${user}</p>
+        <p>Comentario: ${textarea}</p>
+        <p>Fecha: ${fecha}</p>
+        <p>Puntuacion: `+ estrellas +`</p>
+        
+        </br>
+        `
+        estrellas = ``
+    });
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+        if(pair[0] == variable) {
+            return pair[1];
+         }
+     }
+    return false;
+     }
+
+
+   
+
+
+
+    
+
+    
+    
+
+
+        
+
+  
+        
             
               
         
