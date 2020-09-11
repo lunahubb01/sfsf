@@ -163,7 +163,59 @@ document.addEventListener("DOMContentLoaded", function(e){
     return false;
      }
 
+           var prodrel = {};
+        document.addEventListener("DOMContentLoaded", function (e) {
+        getJSONData(PRODUCTS_URL).then(function (resultObj) {
+              if (resultObj.status === "ok") {
+                prodrel = resultObj.data;
+            let prodrelCar = document.getElementById("productProdrel");
+            prodrelCar.innerHTML += `
+            <a href="product-info.html?product=`+ prodrel[1].name +`" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + prodrel[1].imgSrc + `" alt="` + prodrel[1].description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ prodrel[1].name +` - `+ prodrel[1].currency +  prodrel[1].cost +`</h4>
+                           
+                            <small class="text-muted">` + prodrel[1].soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + prodrel[1].description + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+        }
+        });
+    });
 
+            var prodrel2 = {};
+        document.addEventListener("DOMContentLoaded", function (e) {
+        getJSONData(PRODUCTS_URL).then(function (resultObj) {
+             if (resultObj.status === "ok") {
+                prodrel2 = resultObj.data;
+                let prodrelCar2 = document.getElementById("productProdrel2");
+                    prodrelCar2.innerHTML += `
+            <a href="product-info.html?product=`+ prodrel2[3].name +`" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + prodrel2[3].imgSrc + `" alt="` + prodrel2[3].description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ prodrel2[3].name +` - `+ prodrel2[3].currency +  prodrel2[3].cost +`</h4>
+                           
+                            <small class="text-muted">` + prodrel2[3].soldCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + prodrel2[3].description + `</p>
+                    </div>
+                </div>
+            </a>
+            `
+        }
+    });
+});
    
 
 
