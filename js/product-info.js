@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             }
             
 
-          element.innerHTML += ` 
+        element.innerHTML += ` 
         
         
         <p>Usuario: ${data[i].user}</p>
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         estrellitas(estrellitasvacias, punt);
 
         
-       console.log(estrellas)
+        console.log(estrellas)
         element.innerHTML += ` 
         
         <p>Usuario: ${user}</p>
@@ -160,16 +160,20 @@ document.addEventListener("DOMContentLoaded", function(e){
             return pair[1];
          }
      }
-    return false;
+            return false;
      }
 
-           var prodrel = {};
-        document.addEventListener("DOMContentLoaded", function (e) {
-        getJSONData(PRODUCTS_URL).then(function (resultObj) {
+
+    var prodrel = {};
+
+    document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
               if (resultObj.status === "ok") {
                 prodrel = resultObj.data;
-            let prodrelCar = document.getElementById("productProdrel");
-            prodrelCar.innerHTML += `
+
+        let prodrelCar = document.getElementById("productProdrel");
+
+        prodrelCar.innerHTML += `
             <a href="product-info.html?product=`+ prodrel[1].name +`" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -190,13 +194,16 @@ document.addEventListener("DOMContentLoaded", function(e){
         });
     });
 
-            var prodrel2 = {};
-        document.addEventListener("DOMContentLoaded", function (e) {
-        getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    var prodrel2 = {};
+
+    document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
              if (resultObj.status === "ok") {
                 prodrel2 = resultObj.data;
-                let prodrelCar2 = document.getElementById("productProdrel2");
-                    prodrelCar2.innerHTML += `
+
+    let prodrelCar2 = document.getElementById("productProdrel2");
+
+        prodrelCar2.innerHTML += `
             <a href="product-info.html?product=`+ prodrel2[3].name +`" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
