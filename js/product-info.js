@@ -4,24 +4,7 @@ let element = document.getElementById("coments")
 
 var estrellas = ``
 
-function showImagesGallery(array){
 
-    let htmlContentToAppend = "";
-
-    for(let i = 0; i < array.length; i++){
-        let imageSrc = array[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
-
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
-    }
-}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -54,10 +37,19 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             
 
-
-
-            //Muestro las imagenes en forma de galería
-            showImagesGallery(product.images);
+            let htmlContentToAppend = ``
+            for(let i = 0; i < product.images.length - 1; i++){
+                console.log(product.images[i])
+                htmlContentToAppend = htmlContentToAppend + `
+                <div class="col-md-3 mb-3">
+                    <div class="card">
+                    <img class="img-fluid" src=` + product.images[i] + `
+                    alt="Card image cap">
+                    </div>
+                </div>
+                `  
+            }
+            document.getElementById("galeria").innerHTML += htmlContentToAppend;
 
         }
 
@@ -72,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             for (let j = 0; j < data[i].score; j++){
                 estrellas = estrellas+`<span class="fa fa-star checked"></span>`
-                console.log(data.score)
 
             }
     
@@ -224,6 +215,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
    
+
+
+
 
 
 

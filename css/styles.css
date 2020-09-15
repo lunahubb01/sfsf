@@ -155,3 +155,35 @@ a.custom-card:hover {
 
 }
 
+@media (min-width: 768px) {
+  .carousel-multi-item-2 .col-md-3 {
+  float: left;
+  width: 25%;
+  max-width: 100%; 
+  } 
+}
+
+.carousel-inner {
+  border-style: solid;
+  border-inline-end: transparent;
+  border-inline-start: transparent;
+  border-color: rgb(33, 37, 41, 70%);
+
+}
+
+.carousel-multi-item-2 .card img {
+  border-radius: 2px; 
+}
+
+.controls-top {
+  text-align: center;
+}
+
+#galeriaVacia {
+  font-size: 30px;
+  text-align: center;
+  margin-left: 500px;
+  margin-top: 5px;
+  font-style: italic;
+}
+

@@ -66,9 +66,20 @@ function Store() {
   localStorage.setItem("pw", pw.value);
 }
 
+
 function MyFunction(){
   var x= localStorage.getItem("user") 
-  document.getElementById("arriba").innerHTML =  x;
+  document.getElementById("arriba").innerHTML += `<div class="btn-group" >
+  <button type="button" class="btn btn-danger">`+x+`</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="sr-only" >Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
+  <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="login.html" id="cosita" onclick="localStorage.clear()">Cerrar sesion</a>
+  </div>`;
 }
 
 document.addEventListener("submit", function(e){

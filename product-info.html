@@ -18,12 +18,11 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="cosita">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
   <main role="main">
@@ -31,11 +30,44 @@
       <h3 id="productName"></h3>
       <hr class="my-3">
       <br>
+<!-- INICIO DE GALERÍA DE IMÁGENES CON BOOTSTRAP-->
+<!--Carousel Wrapper-->
+  <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+<!--Controles-->
+  <div class="controls-top">
+    <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3"></i></a>
+    <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3"></i></a>
+  </div>
+  <!--/.Controles-->
+
+  <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+    <!--Primer slide-->
+    <div class="carousel-item active" id="galeria">
+    </div>
+    <!--/.Primer slide-->
+
+    <!--/.Segundo slide-->
+    <div class="carousel-item" id="galeriaVacia">
+    <div class="col-md-3 mb-3">
+    <div class="card">
+        
+    </div>
+    </div>
+    </div>
+    <!--/.Segundo slide-->
+
+     </div>
+     <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+    <!-- FINAL DE GALERÍA DE IMÁGENES CON BOOTSTRAP-->
+
       <dl>      
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
 
         <dt>Descripción</dt>
         <dd>
@@ -97,6 +129,8 @@
       <div></div>
     </div>
   </div>
+  
+</div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
