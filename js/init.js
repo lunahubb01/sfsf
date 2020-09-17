@@ -70,7 +70,7 @@ function Store() {
 function MyFunction(){
   var x= localStorage.getItem("user") 
   document.getElementById("arriba").innerHTML += `<div class="btn-group" >
-  <button type="button" class="btn btn-danger">`+x+`</button>
+  <button type="button" class="btn btn-danger"> <a href="my-profile.html">`+x+`</a></button>
   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span class="sr-only" >Toggle Dropdown</span>
   </button>
@@ -80,6 +80,7 @@ function MyFunction(){
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="login.html" id="cosita" onclick="localStorage.clear()">Cerrar sesion</a>
   </div>`;
+  
 }
 
 document.addEventListener("submit", function(e){
