@@ -37,19 +37,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             
 
-            let htmlContentToAppend = ``
-            for(let i = 0; i < product.images.length - 1; i++){
-                console.log(product.images[i])
-                htmlContentToAppend = htmlContentToAppend + `
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                    <img class="img-fluid" src=` + product.images[i] + `
-                    alt="Card image cap">
-                    </div>
-                </div>
-                `  
-            }
-            document.getElementById("galeria").innerHTML += htmlContentToAppend;
+    
 
         }
 

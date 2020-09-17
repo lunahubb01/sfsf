@@ -79,8 +79,7 @@ function MyFunction(){
   <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
   <div class="dropdown-divider"></div>
   <a class="dropdown-item" href="login.html" id="cosita" onclick="localStorage.clear()">Cerrar sesion</a>
-  </div>`;
-  
+  </div>`; 
 }
 
 document.addEventListener("submit", function(e){
