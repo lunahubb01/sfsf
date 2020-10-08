@@ -190,3 +190,32 @@ margin-top: 8px;
   border-left-color: rgb(12, 128, 116);
   border-width: 4px;
 }
+
+.carrin {
+  text-align: center; 
+  padding-right: 100px;
+  padding-left: 75px;
+  font-weight: bold;
+  color: rgba(249, 205, 130) ;
+}
+
+#carrote {
+  border-style: solid;
+
+}
+
+.tabla td{
+  text-align: center;
+}
+
+.tituloCarro {
+  margin-top: 25px;
+}
+
+#totali {
+  border-style: solid;
+  padding-right: 100px;
+  padding-left: 75px;
+  font-weight: bold;
+  color: rgba(249, 205, 130) ;
+}
