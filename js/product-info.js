@@ -4,7 +4,40 @@ let element = document.getElementById("coments")
 
 var estrellas = ``
 
+function mostrarProductos(productos, relacionados){
 
+    let htmlProductos = "";
+
+    console.log(productos);
+
+    for(let i = 0; i < relacionados.length; i++){
+       
+        console.log(productos[relacionados[i]])
+
+        let relacionado = productos[relacionados[i]];
+
+        htmlProductos += `
+        <a href="product-info.html?Prod=`+ relacionado.name +`" class="list-group-item list-group-item-action">
+        <div class="row">
+            <div class="col-3">
+                <img src="` + relacionado.imgSrc + `" class="img-thumbnail">
+            </div>
+            <div class="col">
+                <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">`+ relacionado.name +`</h4>
+                    <small class="text-muted">$`+relacionado.currency + " "+ relacionado.cost +`</small>
+
+                </div>
+                <p class="mb-1">` + relacionado.description + `</p><br>
+                <small><p>`+relacionado.soldCount+` artículos</p></small>
+            </div>
+        </div>
+    </a>
+    `
+}
+
+document.getElementById("productos").innerHTML += htmlProductos;
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -12,7 +45,8 @@ var estrellas = ``
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
-      
+        
+
         {
             let productoActual = getQueryVariable("Prod");
            
@@ -24,28 +58,30 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCostHTML  = document.getElementById("productCost");
             let productCategoryHTML  = document.getElementById("productCategory");
 
-
-
-
-        
             productNameHTML.innerHTML = productoActual.replace(/%20/g, " ");
             productDescriptionHTML.innerHTML = product.description;
             productsoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML = product.currency +  + product.cost;
             productCategoryHTML.innerHTML = product.category;
 
+            relatedProducts = product.relatedProducts;
 
             
-
-    
-
         }
+        getJSONData(PRODUCTS_URL).then(function(item){
+            if (item.status === "ok"){
 
+                productitos = item.data;
+
+                mostrarProductos(productitos, relatedProducts)
+            }
+        });
     });
 
         fetch(PRODUCT_INFO_COMMENTS_URL)
         .then(response => response.json()) 
         .then(data => {
+           
          
             
         for (let i = 0; i < data.length; i++) {
@@ -72,16 +108,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         `
         estrellas = ``
         
-
-        
-
         }
       
-    })
-   
-      
-                
-              
+    })     
       
     });
     
@@ -141,67 +170,87 @@ document.addEventListener("DOMContentLoaded", function(e){
      }
             return false;
      }
+    
 
+    
 
-    var prodrel = {};
+    // document.addEventListener("DOMContentLoaded", function (e) {
+    // getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+    //           if (resultObj.status === "ok") {
 
-    document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-              if (resultObj.status === "ok") {
-                prodrel = resultObj.data;
+                
+    //             producto = resultObj.data;
+    //             console.log(producto)
 
-        let prodrelCar = document.getElementById("productProdrel");
+    //             let productoDescriptionHTML = document.getElementById("productoDescription")
+    //             let productoSoldHTML = document.getElementById("productoSold")
+    //             let productoPriceHTML = document.getElementById("productoPrice")
+    //             let productoNameCategoryHTML = document.getElementById("productoCategory")
 
-        prodrelCar.innerHTML += `
-            <a href="product-info.html?product=`+ prodrel[1].name +`" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + prodrel[1].imgSrc + `" alt="` + prodrel[1].description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ prodrel[1].name +` - `+ prodrel[1].currency +  prodrel[1].cost +`</h4>
+    //             productoDescriptionHTML.innerHTML = producto.description;
+    //             productoSoldHTML.innerHTML = producto.soldCount;
+    //             productoPriceHTML.innerHTML = producto.cost;
+    //             productoNameCategoryHTML.innerHTML = producto.category;
+
+    //             showImagesGallery(productos.images);
+    //             relatedProducts = producto.relatedProducts;
+                
+    //           }
+
+              
+   
+    //     let prodrelCar = document.getElementById("productProdrel");
+
+    //     prodrelCar.innerHTML += `
+    //         <a href="product-info.html?product=`+ prodrel[1].name +`" class="list-group-item list-group-item-action">
+    //             <div class="row">
+    //                 <div class="col-3">
+    //                     <img src="` + prodrel[1].imgSrc + `" alt="` + prodrel[1].description + `" class="img-thumbnail">
+    //                 </div>
+    //                 <div class="col">
+    //                     <div class="d-flex w-100 justify-content-between">
+    //                         <h4 class="mb-1">`+ prodrel[1].name +` - `+ prodrel[1].currency +  prodrel[1].cost +`</h4>
                            
-                            <small class="text-muted">` + prodrel[1].soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + prodrel[1].description + `</p>
-                    </div>
-                </div>
-            </a>
-            `
-        }
-        });
-    });
+    //                         <small class="text-muted">` + prodrel[1].soldCount + ` artículos</small>
+    //                     </div>
+    //                     <p class="mb-1">` + prodrel[1].description + `</p>
+    //                 </div>
+    //             </div>
+    //         </a>
+    //         `
+    //     }
+    //     });
+    // });
 
-    var prodrel2 = {};
+    // var prodrel2 = {};
 
-    document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-             if (resultObj.status === "ok") {
-                prodrel2 = resultObj.data;
+    // document.addEventListener("DOMContentLoaded", function (e) {
+    // getJSONData(PRODUCTS_URL).then(function (resultObj) {
+    //          if (resultObj.status === "ok") {
+    //             prodrel2 = resultObj.data;
 
-    let prodrelCar2 = document.getElementById("productProdrel2");
+    // let prodrelCar2 = document.getElementById("productProdrel2");
 
-        prodrelCar2.innerHTML += `
-            <a href="product-info.html?product=`+ prodrel2[3].name +`" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + prodrel2[3].imgSrc + `" alt="` + prodrel2[3].description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ prodrel2[3].name +` - `+ prodrel2[3].currency +  prodrel2[3].cost +`</h4>
+    //     prodrelCar2.innerHTML += `
+    //         <a href="product-info.html?product=`+ prodrel2[3].name +`" class="list-group-item list-group-item-action">
+    //             <div class="row">
+    //                 <div class="col-3">
+    //                     <img src="` + prodrel2[3].imgSrc + `" alt="` + prodrel2[3].description + `" class="img-thumbnail">
+    //                 </div>
+    //                 <div class="col">
+    //                     <div class="d-flex w-100 justify-content-between">
+    //                         <h4 class="mb-1">`+ prodrel2[3].name +` - `+ prodrel2[3].currency +  prodrel2[3].cost +`</h4>
                            
-                            <small class="text-muted">` + prodrel2[3].soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + prodrel2[3].description + `</p>
-                    </div>
-                </div>
-            </a>
-            `
-        }
-    });
-});
+    //                         <small class="text-muted">` + prodrel2[3].soldCount + ` artículos</small>
+    //                     </div>
+    //                     <p class="mb-1">` + prodrel2[3].description + `</p>
+    //                 </div>
+    //             </div>
+    //         </a>
+    //         `
+    //     }
+//     });
+// });
    
 
 
@@ -222,4 +271,4 @@ document.addEventListener("DOMContentLoaded", function(e){
             
               
         
-
+    
