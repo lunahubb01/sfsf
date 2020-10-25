@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
             match.innerHTML = `
                 <span style="color:red;">Por favor, indique un número menor a 5 digítos</span>
                 `
+                
         }
-
     })
 });
 
@@ -99,11 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indiqué una calle.</span>
                     `
+                   
         }
-
     })
-
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -119,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique una calle.</span>
                     `
+              
         }
 
     })
@@ -139,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un nombre válido.</span>
                     `
+                 
         }
 
     })
@@ -159,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
+            
         }
 
     })
@@ -174,17 +175,14 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(regexInput1)
         if (regex1.test(regexInput1.value)) {
             match1.innerHTML = `
-                    <span style="color:green;"></span>
                     `
         } else {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
+                    e.preventDefault;
         }
-
     })
-
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -200,8 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
+                   
         }
-
     })
 
 
@@ -217,8 +215,8 @@ function ConfirmarCompra() {
     }
 }
 
-function Deshabilitar(){
-    if (document.getElementById("transf").checked){
+function Deshabilitar() {
+    if (document.getElementById("transf").checked) {
         document.getElementById("regex-input6").disabled = false;
         document.getElementById("regex-input8").disabled = false;
         document.getElementById("regex-input7").disabled = true;
@@ -226,10 +224,8 @@ function Deshabilitar(){
         document.getElementById("regex-input5").disabled = true;
         document.getElementById("fecha").disabled = true;
         document.getElementById("regex-input3").disabled = true;
-
-
     }
-    if(document.getElementById("tarj").checked){
+    if (document.getElementById("tarj").checked) {
         document.getElementById("regex-input6").disabled = true;
         document.getElementById("regex-input8").disabled = true;
         document.getElementById("regex-input7").disabled = false;
@@ -240,9 +236,8 @@ function Deshabilitar(){
     }
 }
 
-document.getElementById("formul").addEventListener("submit", function(e){
+document.getElementById("formul").addEventListener("submit", function (e) {
     e.preventDefault()
-
 });
 
 

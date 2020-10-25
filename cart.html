@@ -96,7 +96,7 @@
         <input form="formu" id="regex-input1" type="text" placeholder="Calle" required><span id="match1"></span><br>
         <input form="formu" id="regex-input" type="text" placeholder="Número de puerta " min="1" required><span
           id="match"></span><br>
-        <input form="formu" id="regex-input2" type="text" placeholder="Esquina"><span id="match2" required></span>
+        <input form="formu" id="regex-input2" type="text" placeholder="Esquina" required><span id="match2" ></span>
       </form>
     </div>
   </div>
@@ -142,43 +142,47 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-      <h5 class="modal-title">Método de pago</h5>
+          <h5 class="modal-title">Método de pago</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="container">
-            <div><form id="pago">
-              <input type="radio"  form="pago"  name="pago" id="transf" onclick="Deshabilitar()"> <h5 class="text-warning"><strong>Transacción bancaria</strong></h5></input></form><br>
+            <div>
+              <form id="pago">
+                <input type="radio" form="pago" name="pago" id="transf" onclick="Deshabilitar()">
+                <h5 class="text-warning"><strong>Transacción bancaria</strong></h5></input>
+              </form><br>
               <p class="muted text-justify">
               <form id="formul"><input form="formul" id="regex-input6" type="number" placeholder="Número de tarjeta"
-                  required> <input form="formul" id="regex-input8" type="text" placeholder="C.I" required><span
+                  required> <input form="formu" id="regex-input8" type="number" placeholder="C.I" maxlength="8" pattern="" required><span
                   id="match7"></span>
-                </form>
+              </form>
               <span id="matche"></span></span></p>
             </div>
             <hr>
             <div>
-              <input type="radio" form="pago" name="pago" id="tarj" onclick="Deshabilitar()"><h5 class="text-primary"><strong>Tarjeta de crédito </strong></h5><br></button><br>
-              <input form="formul" id="regex-input3" type="text" placeholder="Nombre" required><span
+              <input type="radio" form="pago" name="pago" id="tarj" onclick="Deshabilitar()">
+              <h5 class="text-primary"><strong>Tarjeta de crédito </strong></h5><br></button><br>
+              <input form="formu" id="regex-input3" type="text" placeholder="Nombre" required><span
                 id="match3"></span><br>
-                <input form="formul" id="regex-input7" type="text" placeholder="C.I" required><span
+              <input form="formu" id="regex-input7" type="text" placeholder="C.I" required><span
                 id="match7"></span><br>
-              <input form="formul" id="regex-input4" type="number" placeholder="Número de tarjeta" required><span
+              <input form="formu" id="regex-input4" type="number" placeholder="Número de tarjeta" required><span
                 id="match4"></span><br>
-              <input form="formul" id="regex-input5" type="number" placeholder="CVV" required><span
+              <input form="formu" id="regex-input5" type="number" placeholder="CVV" required><span
                 id="match5"></span><br>
-              <input form="formul" type="month" placeholder="Fecha" id="fecha" required>
+              <input form="formu" type="month" placeholder="Fecha" id="fecha" required>
               <div class="modal-footer">
-                <input form="formul" type="submit" class="btn btn-primary" value="Cerrar" id="boton" data-dismiss="modal"
-                  onclick="alert('Asegurate de colocar bien tus datos!')">
+                <input form="formu" type="submit" class="btn btn-primary" value="Cerrar" id="boton"
+                  data-dismiss="modal" onclick="alert('Asegurate de colocar bien tus datos!')">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
