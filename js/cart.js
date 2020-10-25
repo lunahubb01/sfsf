@@ -58,11 +58,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 </tr>
                 </tbody>
              `
-            }
-
+            } 
         }
-
-
     })
 });
 
@@ -80,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
             match.innerHTML = `
                 <span style="color:red;">Por favor, indique un número menor a 5 digítos</span>
                 `
-                
         }
     })
 });
@@ -99,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indiqué una calle.</span>
                     `
-                   
         }
     })
 });
@@ -117,12 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique una calle.</span>
                     `
-              
         }
-
     })
-
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -138,12 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un nombre válido.</span>
                     `
-                 
         }
-
     })
-
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -151,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var regexInput1 = document.getElementById("regex-input4");
     var match1 = document.getElementById("match4");
     regexInput1.addEventListener("keyup", (e) => {
-        console.log(regexInput1)
         if (regex1.test(regexInput1.value)) {
             match1.innerHTML = `
                     `
@@ -159,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
-            
+
         }
 
     })
@@ -180,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
-                    e.preventDefault;
+            e.preventDefault;
         }
     })
 });
@@ -198,11 +184,42 @@ document.addEventListener("DOMContentLoaded", () => {
             match1.innerHTML = `
                     <span style="color:red;">Por favor, indique un número válido.</span>
                     `
-                   
         }
     })
+});
 
+document.addEventListener("DOMContentLoaded", () => {
+    var regex1 = /^\d{8}$/;
+    var regexInput1 = document.getElementById("regex-input7");
+    var match1 = document.getElementById("matche1");
+    regexInput1.addEventListener("keyup", (e) => {
+        console.log(regexInput1)
+        if (regex1.test(regexInput1.value)) {
+            match1.innerHTML = `
+                    `
+        } else {
+            match1.innerHTML = `
+                    <span style="color:red;">Por favor, indique un número de cédulaválido.</span>
+                    `
+        }
+    })
+});
 
+document.addEventListener("DOMContentLoaded", () => {
+    var regex1 = /^\d{8}$/;
+    var regexInput1 = document.getElementById("regex-input8");
+    var match1 = document.getElementById("matche2");
+    regexInput1.addEventListener("keyup", (e) => {
+        console.log(regexInput1)
+        if (regex1.test(regexInput1.value)) {
+            match1.innerHTML = `
+                    `
+        } else {
+            match1.innerHTML = `
+                    <span style="color:red;">Por favor, indique un número de cédula válido.</span> 
+                    `
+        }
+    })
 });
 
 function ConfirmarCompra() {
@@ -236,9 +253,9 @@ function Deshabilitar() {
     }
 }
 
-document.getElementById("formul").addEventListener("submit", function (e) {
-    e.preventDefault()
-});
+// document.getElementById("formu").addEventListener("submit", function (e) {
+//     e.preventDefault()
+// });
 
 
 

@@ -93,14 +93,12 @@
     <div>
       <label>Datos de envio: </label> <br>
       <form id="formu">
-        <input form="formu" id="regex-input1" type="text" placeholder="Calle" required><span id="match1"></span><br>
-        <input form="formu" id="regex-input" type="text" placeholder="Número de puerta " min="1" required><span
-          id="match"></span><br>
-        <input form="formu" id="regex-input2" type="text" placeholder="Esquina" required><span id="match2" ></span>
+        <input form="formu" id="regex-input1" type="text" placeholder="Calle" pattern="[A-Za-z]{3,25}" title="Escriba una calle existente." required><span id="match1"></span><br>
+        <input form="formu" id="regex-input" type="text" placeholder="Número de puerta " minlength="1" pattern="[0-9]{1,4}" title="Por favor, indique un número menor a 5 digítos." required><span id="match"></span><br>
+        <input form="formu" id="regex-input2" type="text" placeholder="Esquina" pattern="[A-Za-z]{3,25}" title="Escriba una esquina existente." required><span id="match2" ></span>
       </form>
     </div>
   </div>
-
   <!-- //Costos de envio -->
   <hr class="mb-4">
   <h4 class="mb-3">Costos</h4>
@@ -147,7 +145,6 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
           <div class="container">
             <div>
               <form id="pago">
@@ -155,29 +152,25 @@
                 <h5 class="text-warning"><strong>Transacción bancaria</strong></h5></input>
               </form><br>
               <p class="muted text-justify">
-              <form id="formul"><input form="formul" id="regex-input6" type="number" placeholder="Número de tarjeta"
-                  required> <input form="formu" id="regex-input8" type="number" placeholder="C.I" maxlength="8" pattern="" required><span
-                  id="match7"></span>
-              </form>
-              <span id="matche"></span></span></p>
+              <input form="formu" id="regex-input6" type="text" placeholder="Número de tarjeta" pattern="[0-9]{8,9}" required> <span id="matche"></span>
+              <input form="formu" id="regex-input8" type="text" placeholder="C.I"  pattern="[0-9]{8}" required><span id="matche2"></span></p>
             </div>
             <hr>
             <div>
               <input type="radio" form="pago" name="pago" id="tarj" onclick="Deshabilitar()">
-              <h5 class="text-primary"><strong>Tarjeta de crédito </strong></h5><br></button><br>
-              <input form="formu" id="regex-input3" type="text" placeholder="Nombre" required><span
-                id="match3"></span><br>
-              <input form="formu" id="regex-input7" type="text" placeholder="C.I" required><span
-                id="match7"></span><br>
-              <input form="formu" id="regex-input4" type="number" placeholder="Número de tarjeta" required><span
+              <h5 class="text-primary"><strong>Tarjeta de crédito </strong></h5><br></button>
+              <input form="formu" id="regex-input7" type="text" placeholder="C.I" pattern="[0-9]{8}" required><span
+                id="matche1"></span><br>
+              <input form="formu" id="regex-input4" type="text" placeholder="Número de tarjeta" pattern="[0-9]{8,9}" required><span
                 id="match4"></span><br>
-              <input form="formu" id="regex-input5" type="number" placeholder="CVV" required><span
+              <input form="formu" id="regex-input5" type="text" placeholder="CVV" pattern="[0-9]{3}" required><span
                 id="match5"></span><br>
               <input form="formu" type="month" placeholder="Fecha" id="fecha" required>
               <div class="modal-footer">
                 <input form="formu" type="submit" class="btn btn-primary" value="Cerrar" id="boton"
                   data-dismiss="modal" onclick="alert('Asegurate de colocar bien tus datos!')">
               </div>
+            </form>
             </div>
           </div>
         </div>

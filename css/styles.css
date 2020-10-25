@@ -219,3 +219,11 @@ margin-top: 8px;
   font-weight: bold;
   color: rgba(249, 205, 130) ;
 }
+
+input:invalid {
+  border-color: red;
+}
+input,
+input:valid {
+  border-color: #ccc;
+}
