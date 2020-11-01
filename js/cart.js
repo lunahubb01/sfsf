@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 </tr>
                 </tbody>
              `
-            } 
+            }
         }
     })
 });
@@ -253,9 +253,7 @@ function Deshabilitar() {
     }
 }
 
-// document.getElementById("formu").addEventListener("submit", function (e) {
-//     e.preventDefault()
-// });
+
 
 
 

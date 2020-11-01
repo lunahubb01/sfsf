@@ -18,9 +18,6 @@ var hideSpinner = function(){
 
 }
 
-
-
-
 var getJSONData = function(url){
     var result = {};
     showSpinner();
@@ -55,10 +52,6 @@ if(
   sessionStorage.getItem("logueado") !== "true") {
       window.location.href="login.html"
   }
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 
 var username = document.getElementById("userbox")
 var pw= document.getElementById("passwordLA")
