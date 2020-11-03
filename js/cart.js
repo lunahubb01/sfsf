@@ -222,16 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 });
 
-function ConfirmarCompra() {
-    var mensaje = confirm("¿Finalizaste tu compra?");
-    if (mensaje) {
-        alert("¡Gracias por comprar!");
-    }
-    else {
-        alert("¡Haz cancelado tu compra!");
-    }
-}
-
 function Deshabilitar() {
     if (document.getElementById("transf").checked) {
         document.getElementById("regex-input6").disabled = false;
