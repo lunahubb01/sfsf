@@ -33,7 +33,7 @@
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
+<body background="img/negro.jpg">
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between" id="cosita">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -45,23 +45,33 @@
 
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">Tus datos</h4>
-        <form id="datosguardados">
-          <input type="text" placeholder="Nombres" id="nombres" ><br>
-          <input type="text" placeholder="Apellidos" id="apellidos" ><br>
-          <input type="text" placeholder="E-mail" id="email"><br>
-          <input type="tel" placeholder="Teléfono de contacto" id="telefono"><br>
-          <input type="submit" value="Guardar datos" id="enviar">
+    <div style="position: relative; width:auto; top: 0;">
+      <h1 style="position:initial;" id="Tit">Tus datos ♥</h1>
+      <div style="float: left;">
+          <form action="#" target="" method="get" name="formDatosPersonales" id="datosguardados">
+
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombres" placeholder="Escribe tu nombre"/> 
+          
+          <label for="apellidos">Apellidos</label>
+          <input type="text" name="apellidos" id="apellidos" placeholder="1r Apellido"/>
+          
+          <label for="email" />Email</label>
+          <input type="email" name="email" id="email" placeholder="email" required />
+          <label for="asunto">Teléfono</label>
+           <input type ="tel" name="asunto" id="telefono" placeholder="Teléfono de contacto"/>
+  
+           <label for="mensaje">Biografía</label>
+           <textarea name="mensaje" for="mensaje" placeholder="Cuéntanos sobre ti..." maxlength="300"></textarea>
+
+          <input type="submit" value="Guardar datos" id="enviar" style="float: right;" class="m-1 btn btn-link">
         </form>
     </div>
   </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
+
+    <div id="imagenmostrar" style="float: right; position: relative; width: 3.cm; height: 3.cm;"></div>
+  </div>
+
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

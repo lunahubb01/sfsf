@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 let datosG = []
 
+document.getElementById("imagenmostrar").innerHTML = `<img src="`+localStorage.getItem("imagen")+`" alt="" 
+>`;     
+
 document.getElementById("datosguardados").addEventListener("submit", (e) => {
-    e.preventDefault()
     var nombres = document.getElementById("nombres").value
     var apellidos = document.getElementById("apellidos").value
     var email = document.getElementById("email").value
@@ -25,6 +27,8 @@ document.getElementById("datosguardados").addEventListener("submit", (e) => {
     JSONDatos = JSON.stringify(datos);
     localStorage.setItem("Datos", JSONDatos);
     JSON.parse(localStorage.getItem("Datos"))
+
+    localStorage.setItem("imagen", "https://i.ibb.co/P1BRXB8/bulmi.jpg" );
 })
 
 if (localStorage.getItem("Datos") === null) {
