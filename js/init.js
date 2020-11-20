@@ -73,7 +73,7 @@ function MyFunction(){
   <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
   <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="login.html" id="cosita" onclick="localStorage.clear()">Cerrar sesion</a>
+  <a class="dropdown-item" href="login.html" id="header" onclick="localStorage.clear()">Cerrar sesion</a>
   </div>`; 
 }
 
@@ -83,7 +83,7 @@ document.addEventListener("submit", function(e){
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-  document.getElementById("cosita").innerHTML += `<a class="py-2 d-none d-md-inline-block" id="arriba" href="#"</a>`
+  document.getElementById("header").innerHTML += `<a class="py-2 d-none d-md-inline-block" id="arriba" href="#"</a>`
   MyFunction();
 }); 
 

@@ -35,7 +35,7 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between" id="cosita">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="header">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -89,9 +89,9 @@
     </div>
 
     <!-- //Datos para el envio -->
-    <div>
-      <label>Datos de envio: </label> <br>
-      <form id="formu">
+    <div >
+      <h5><label>Datos de envio: </label></h5><br>
+      <form id="formu" >
         <input form="formu" id="regex-input1" type="text" placeholder="Calle" pattern="[A-Za-z]{3,25}"
           title="Escriba una calle existente." required><span id="match1"></span><br>
         <input form="formu" id="regex-input" type="text" placeholder="Número de puerta " minlength="1"
@@ -103,20 +103,19 @@
     </div>
   </div>
   <!-- //Costos de envio -->
+  <div >
   <hr class="mb-4">
   <h4 class="mb-3">Costos</h4>
   <ul class="list-group mb-3">
     <li class="list-group-item d-flex justify-content-between lh-condensed">
       <div>
         <h6 class="my-0">Precio</h6>
-        <small class="text-muted">Unitario por producto</small>
       </div>
       <span class="text-muted" id="CostoDeProducto">-</span>
     </li>
     <li class="list-group-item d-flex justify-content-between lh-condensed">
       <div>
         <h6 class="my-0">Envio</h6>
-        <small class="text-muted">Según el tipo de compra</small>
       </div>
       <span class="text-muted" id="comision">-</span>
     </li>
@@ -125,10 +124,10 @@
       <strong id="CostoTotal">-</strong>
     </li>
   </ul>
-
   <hr class="mb-4">
   <input class="btn btn-primary btn-lg" type="submit" value="Comprar" form="formu">
-  </form>
+</div>
+</div>
   </div>
   </div>
   </div>

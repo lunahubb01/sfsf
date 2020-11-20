@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             console.log(resultObj)
 
             cart = resultObj.data.articles
-            document.getElementById("cartt")
 
             for (let i = 0; i < cart.length; i++) {
 
