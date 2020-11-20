@@ -34,16 +34,12 @@ var getJSONData = function(url){
           result.data = response;
           hideSpinner();
           return result;
-
-
     })
     .catch(function(error) {
         result.status = 'error';
         result.data = error;
         hideSpinner();
         return result;
-
-
     });  
 };
 
@@ -64,7 +60,7 @@ function Store() {
 
 function MyFunction(){
   var x= localStorage.getItem("user") 
-  document.getElementById("arriba").innerHTML += `<div class="btn-group" >
+  document.getElementById("up").innerHTML += `<div class="btn-group" >
   <button type="button" class="btn btn-danger"> <a href="my-profile.html">`+x+`</a></button>
   <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <span class="sr-only" >Toggle Dropdown</span>
@@ -73,7 +69,7 @@ function MyFunction(){
   <a class="dropdown-item" href="cart.html">Ver mi carrito</a>
   <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="login.html" id="header" onclick="localStorage.clear()">Cerrar sesion</a>
+  <a class="dropdown-item" href="login.html" id="boxlist" onclick="localStorage.clear()">Cerrar sesion</a>
   </div>`; 
 }
 
@@ -83,7 +79,7 @@ document.addEventListener("submit", function(e){
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-  document.getElementById("header").innerHTML += `<a class="py-2 d-none d-md-inline-block" id="arriba" href="#"</a>`
+  document.getElementById("boxlist").innerHTML += `<a class="py-2 d-none d-md-inline-block" id="up" href="#"</a>`
   MyFunction();
 }); 
 

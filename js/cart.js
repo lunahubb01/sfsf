@@ -1,42 +1,46 @@
-let porcentajeDeComision = 0.15;
+let porcentageDeComision = 0.15;
 
-function CalcularTotal() {
-    let cantidades = document.getElementsByClassName("canti");
-    let preciosUnitarios = document.getElementsByClassName("unitario");
-    let preciosSubtotales = document.getElementsByClassName("subtotal");
-    let moneditas = document.getElementsByClassName("Moneda");
+CalculateShipping();
+CalculateTotal();
+
+function CalculateTotal() {
+    let quantity = document.getElementsByClassName("quantity");
+    let unitaryPrice = document.getElementsByClassName("unitary");
+    let SubtotalPrices = document.getElementsByClassName("subtotal");
+    let Coins = document.getElementsByClassName("Coin");
     let pesos = 0;
     let comision = document.getElementById("comision");
 
 
-    for (let i = 0; i < cantidades.length; i++) {
-        preciosSubtotales[i].innerHTML = (parseInt(preciosUnitarios[i].innerHTML) * cantidades[i].value);
+    for (let i = 0; i < quantity.length; i++) {
+        SubtotalPrices[i].innerHTML = (parseInt(unitaryPrice[i].innerHTML) * quantity[i].value);
 
-        if (moneditas[i].innerHTML === "USD") {
-            pesos += parseInt(preciosSubtotales[i].innerHTML * 40)
+        if (Coins[i].innerHTML === "USD") {
+            pesos += parseInt(SubtotalPrices[i].innerHTML * 40)
         }
         else {
-            pesos += parseInt(preciosSubtotales[i].innerHTML)
+            pesos += parseInt(SubtotalPrices[i].innerHTML)
         }
     }
 
-    document.getElementById("CostoDeProducto").innerHTML = "$" + pesos + " ";
-    CalcularEnvio();
-    comision.innerHTML = "$" + porcentajeDeComision * (parseInt(pesos));
-    document.getElementById("CostoTotal").innerHTML = "$" + (porcentajeDeComision * (parseInt(pesos)) + (parseInt(pesos)));
+    document.getElementById("ProductCost1").innerHTML = "$" + pesos + " ";
+    CalculateShipping();
+    comision.innerHTML = "$" + porcentageDeComision * (parseInt(pesos));
+    document.getElementById("TotalCost").innerHTML = "$" + (porcentageDeComision * (parseInt(pesos)) + (parseInt(pesos)));
     return pesos;
 
 }
 
-function CalcularEnvio() {
-    var envioSeleccionado = document.getElementsByName('publicationType');
-    for (i = 0; i < envioSeleccionado.length; i++) {
-        if (envioSeleccionado[i].checked)
-            porcentajeDeComision = envioSeleccionado[i].value;
+function CalculateShipping() {
+    var selectedShipping = document.getElementsByName('publicationType');
+    for (i = 0; i < selectedShipping.length; i++) {
+        if (selectedShipping[i].checked)
+            porcentageDeComision = selectedShipping[i].value;
     }
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+  
     getJSONData(CART_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             console.log(resultObj)
@@ -45,14 +49,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             for (let i = 0; i < cart.length; i++) {
 
-                document.getElementById("carrote").innerHTML += `
+                document.getElementById("shopCart").innerHTML += `
                 <tbody>
                 <tr class="tabla">
                     <td> <img src="` + cart[i].src + `" style="width: 3cm" class="img-thumbnail"></td>
                     <td> `+ cart[i].name + `</td>
-                    <td><input class="canti"style="width: 3cm; border: 0;" min="1" type="number" value="` + cart[i].count + `" onchange="CalcularTotal()"></td>
-                    <td class="Moneda">`+ cart[i].currency + `</td>
-                    <td class="unitario">`+ cart[i].unitCost + `</td>
+                    <td><input class="quantity"style="width: 3cm; border: 0;" min="1" type="number" value="` + cart[i].count + `" onchange="CalculateTotal()"></td>
+                    <td class="Coin">`+ cart[i].currency + `</td>
+                    <td class="unitary">`+ cart[i].unitCost + `</td>
                     <td class="subtotal">`+ cart[i].unitCost * cart[i].count + `</td>
                 </tr>
                 </tbody>

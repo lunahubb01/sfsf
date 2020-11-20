@@ -2,21 +2,19 @@ var product = {};
 
 let element = document.getElementById("coments")
 
-var estrellas = ``
+var stars = ``
 
-function mostrarProductos(productos, relacionados){
+function showProducts(products, relacionados){
 
-    let htmlProductos = "";
-
-    console.log(productos);
+    let htmlProducts = "";
 
     for(let i = 0; i < relacionados.length; i++){
        
-        console.log(productos[relacionados[i]])
+        console.log(products[relacionados[i]])
 
-        let relacionado = productos[relacionados[i]];
+        let relacionado = products[relacionados[i]];
 
-        htmlProductos += `
+        htmlProducts += `
         <a href="product-info.html?Prod=`+ relacionado.name +`" class="list-group-item list-group-item-action">
         <div class="row">
             <div class="col-3">
@@ -36,7 +34,7 @@ function mostrarProductos(productos, relacionados){
     `
 }
 
-document.getElementById("productos").innerHTML += htmlProductos;
+document.getElementById("products").innerHTML += htmlProducts;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -71,9 +69,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCTS_URL).then(function(item){
             if (item.status === "ok"){
 
-                productitos = item.data;
+                products1 = item.data;
 
-                mostrarProductos(productitos, relatedProducts)
+                showProducts(products1, relatedProducts)
             }
         });
     });
@@ -81,32 +79,28 @@ document.addEventListener("DOMContentLoaded", function(e){
         fetch(PRODUCT_INFO_COMMENTS_URL)
         .then(response => response.json()) 
         .then(data => {
-           
-         
-            
+               
         for (let i = 0; i < data.length; i++) {
 
             for (let j = 0; j < data[i].score; j++){
-                estrellas = estrellas+`<span class="fa fa-star checked"></span>`
+                stars = stars+`<span class="fa fa-star checked"></span>`
 
             }
     
             for (let j = 0; j < 5-data[i].score; j++){
-                estrellas = estrellas+`<span class="fa fa-star"></span>`
+                stars = stars+`<span class="fa fa-star"></span>`
             
             }
             
 
         element.innerHTML += ` 
-        
-        
         <p>Usuario: ${data[i].user}</p>
-        <p>Puntuación: `+ estrellas +`</p>
+        <p>Puntuación: `+ stars +`</p>
         <p>${data[i].description}</p>
         <p>Fecha: ${data[i].dateTime}</p>
         <br>
         `
-        estrellas = ``
+        stars = ``
         
         }
       
@@ -114,19 +108,19 @@ document.addEventListener("DOMContentLoaded", function(e){
       
     });
     
-    function estrellitas(vacias, llenas){
-        for (let j = 0; j < llenas; j++){
-            estrellas = estrellas+`<span class="fa fa-star checked"></span>`
+    function littleStars(empty, full){
+        for (let j = 0; j < full; j++){
+            stars = stars+`<span class="fa fa-star checked"></span>`
             
 
         }
 
 
-        for (let j = 0; j < vacias; j++){
-            estrellas = estrellas+`<span class="fa fa-star"></span>`
+        for (let j = 0; j < empty; j++){
+            stars = stars+`<span class="fa fa-star"></span>`
         
         }
-        return estrellas;
+        return stars;
     }
 
     var user = localStorage.getItem("user") 
@@ -134,29 +128,26 @@ document.addEventListener("DOMContentLoaded", function(e){
     document.getElementById("user1").innerHTML += user;
 
     document.getElementById("boton2").addEventListener('click', (event)=>{
-        var textarea = document.getElementById("cuerpo").value;
+        var textarea = document.getElementById("comment1").value;
         
         let hoy = new Date();
         let fecha = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDate() + ' ' + hoy.getHours() + ':' +
         hoy.getMinutes() + ':' + hoy.getSeconds();
         let punt = document.getElementById("punt").value;
 
-        let estrellitasvacias = 5-punt;
+        let emptystars = 5-punt;
 
-        estrellitas(estrellitasvacias, punt);
-
+        littleStars(emptystars, punt);
         
-        console.log(estrellas)
         element.innerHTML += ` 
-        
         <p>Usuario: ${user}</p>
         <p>Comentario: ${textarea}</p>
         <p>Fecha: ${fecha}</p>
-        <p>Puntuacion: `+ estrellas +`</p>
+        <p>Puntuacion: `+ stars +`</p>
         
         </br>
         `
-        estrellas = ``
+        stars = ``
     });
 
     function getQueryVariable(variable) {
@@ -171,86 +162,6 @@ document.addEventListener("DOMContentLoaded", function(e){
             return false;
      }
     
-
-    
-
-    // document.addEventListener("DOMContentLoaded", function (e) {
-    // getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-    //           if (resultObj.status === "ok") {
-
-                
-    //             producto = resultObj.data;
-    //             console.log(producto)
-
-    //             let productoDescriptionHTML = document.getElementById("productoDescription")
-    //             let productoSoldHTML = document.getElementById("productoSold")
-    //             let productoPriceHTML = document.getElementById("productoPrice")
-    //             let productoNameCategoryHTML = document.getElementById("productoCategory")
-
-    //             productoDescriptionHTML.innerHTML = producto.description;
-    //             productoSoldHTML.innerHTML = producto.soldCount;
-    //             productoPriceHTML.innerHTML = producto.cost;
-    //             productoNameCategoryHTML.innerHTML = producto.category;
-
-    //             showImagesGallery(productos.images);
-    //             relatedProducts = producto.relatedProducts;
-                
-    //           }
-
-              
-   
-    //     let prodrelCar = document.getElementById("productProdrel");
-
-    //     prodrelCar.innerHTML += `
-    //         <a href="product-info.html?product=`+ prodrel[1].name +`" class="list-group-item list-group-item-action">
-    //             <div class="row">
-    //                 <div class="col-3">
-    //                     <img src="` + prodrel[1].imgSrc + `" alt="` + prodrel[1].description + `" class="img-thumbnail">
-    //                 </div>
-    //                 <div class="col">
-    //                     <div class="d-flex w-100 justify-content-between">
-    //                         <h4 class="mb-1">`+ prodrel[1].name +` - `+ prodrel[1].currency +  prodrel[1].cost +`</h4>
-                           
-    //                         <small class="text-muted">` + prodrel[1].soldCount + ` artículos</small>
-    //                     </div>
-    //                     <p class="mb-1">` + prodrel[1].description + `</p>
-    //                 </div>
-    //             </div>
-    //         </a>
-    //         `
-    //     }
-    //     });
-    // });
-
-    // var prodrel2 = {};
-
-    // document.addEventListener("DOMContentLoaded", function (e) {
-    // getJSONData(PRODUCTS_URL).then(function (resultObj) {
-    //          if (resultObj.status === "ok") {
-    //             prodrel2 = resultObj.data;
-
-    // let prodrelCar2 = document.getElementById("productProdrel2");
-
-    //     prodrelCar2.innerHTML += `
-    //         <a href="product-info.html?product=`+ prodrel2[3].name +`" class="list-group-item list-group-item-action">
-    //             <div class="row">
-    //                 <div class="col-3">
-    //                     <img src="` + prodrel2[3].imgSrc + `" alt="` + prodrel2[3].description + `" class="img-thumbnail">
-    //                 </div>
-    //                 <div class="col">
-    //                     <div class="d-flex w-100 justify-content-between">
-    //                         <h4 class="mb-1">`+ prodrel2[3].name +` - `+ prodrel2[3].currency +  prodrel2[3].cost +`</h4>
-                           
-    //                         <small class="text-muted">` + prodrel2[3].soldCount + ` artículos</small>
-    //                     </div>
-    //                     <p class="mb-1">` + prodrel2[3].description + `</p>
-    //                 </div>
-    //             </div>
-    //         </a>
-    //         `
-    //     }
-//     });
-// });
    
 
 

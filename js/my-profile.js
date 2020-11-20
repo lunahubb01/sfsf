@@ -6,16 +6,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 let datosG = []
 
-document.getElementById("imagenmostrar").innerHTML = `<img src="`+localStorage.getItem("imagen")+`" alt="">`;     
+document.getElementById("showImage").innerHTML = `<img src="`+localStorage.getItem("image")+`" alt="">`;     
 
-document.getElementById("datosguardados").addEventListener("submit", (e) => {
-    var nombres = document.getElementById("nombres").value
-    var apellidos = document.getElementById("apellidos").value
+document.getElementById("savedData").addEventListener("submit", (e) => {
+    var nombres = document.getElementById("names").value
+    var apellidos = document.getElementById("lastname").value
     var email = document.getElementById("email").value
-    var telefono = document.getElementById("telefono").value
-    var biografia = document.getElementById("biografia").value
+    var telefono = document.getElementById("phone").value
+    var biografia = document.getElementById("biography").value
 
-    var datos = {
+    var data = {
         Nombres: nombres,
         Apellidos: apellidos,
         Email: email,
@@ -23,23 +23,23 @@ document.getElementById("datosguardados").addEventListener("submit", (e) => {
         Biografía: biografia
     }
 
-    datosG.push(datos)
+    datosG.push(data)
 
-    JSONDatos = JSON.stringify(datos);
-    localStorage.setItem("Datos", JSONDatos);
-    JSON.parse(localStorage.getItem("Datos"))
+    JSONDatos = JSON.stringify(data);
+    localStorage.setItem("Datas", JSONDatos);
+    JSON.parse(localStorage.getItem("Datas"))
 
-    localStorage.setItem("imagen", "https://i.ibb.co/J5vRFTL/bulmita.png" );
+    localStorage.setItem("image", "https://i.ibb.co/J5vRFTL/bulmita.png" );
 })
 
-if (localStorage.getItem("Datos") === null) {
+if (localStorage.getItem("Datas") === null) {
 
 }
 else {
-    document.getElementById("nombres").value = JSON.parse(localStorage.getItem("Datos")).Nombres;
-    document.getElementById("apellidos").value = JSON.parse(localStorage.getItem("Datos")).Apellidos;
-    document.getElementById("email").value = JSON.parse(localStorage.getItem("Datos")).Email;
-    document.getElementById("telefono").value = JSON.parse(localStorage.getItem("Datos")).Telefono;
-    document.getElementById("biografia").value = JSON.parse(localStorage.getItem("Datos")).Biografía;
+    document.getElementById("names").value = JSON.parse(localStorage.getItem("Datas")).Nombres;
+    document.getElementById("lastname").value = JSON.parse(localStorage.getItem("Datas")).Apellidos;
+    document.getElementById("email").value = JSON.parse(localStorage.getItem("Datas")).Email;
+    document.getElementById("phone").value = JSON.parse(localStorage.getItem("Datas")).Telefono;
+    document.getElementById("biography").value = JSON.parse(localStorage.getItem("Datas")).Biografía;
 }
 

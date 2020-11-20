@@ -35,7 +35,7 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between" id="header">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="boxlist">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -50,36 +50,34 @@
 
   <div id="cartt"></div>
 
-  <table id="carrote">
+  <table id="shopCart">
     <tr>
       <td id="imagenCarro"></td>
-      <td class="carrin">Nombre artículo</td>
-      <td class="carrin">Cantidad</td>
-      <td class="carrin">Moneda</td>
-      <td class="carrin">Precio</td>
-      <td class="carrin">Subtotal</td>
+      <td class="dataCart">Nombre artículo</td>
+      <td class="dataCart">Cantidad</td>
+      <td class="dataCart">Moneda</td>
+      <td class="dataCart">Precio</td>
+      <td class="dataCart">Subtotal</td>
     </tr>
   </table>
-
-  <!-- //Seleccionar tipos de envio -->
 
   <hr class="mb-4">
   <h5 class="mb-3">Tipo de envio</h5>
   <div class="d-block my-3">
     <div class="custom-control custom-radio">
       <input id="premium" name="publicationType" type="radio" class="custom-control-input" checked="" required=""
-        onchange="CalcularTotal()" value="0.15">
+        onchange="CalculateTotal()" value="0.15">
       <label class="custom-control-label" for="premium">Premium (2-5 días) - Costo del 15% sobre el subtotal.</label>
     </div>
     <div class="custom-control custom-radio">
       <input id="express" name="publicationType" type="radio" class="custom-control-input" required=""
-        onchange="CalcularTotal()" value="0.07">
+        onchange="CalculateTotal()" value="0.07">
       <label class="custom-control-label" for="express">Express (5-8 días) - Costo del 7% sobre el
         subtotal.</label>
     </div>
     <div class="custom-control custom-radio">
       <input id="standard" name="publicationType" type="radio" class="custom-control-input" required=""
-        onchange="CalcularTotal()" value="0.05">
+        onchange="CalculateTotal()" value="0.05">
       <label class="custom-control-label" for="standard">Standard (12 a 15 días) - Costo del 5% sobre el
         subtotal.</label>
     </div>
@@ -88,7 +86,6 @@
         método de pago</button>
     </div>
 
-    <!-- //Datos para el envio -->
     <div >
       <h5><label>Datos de envio: </label></h5><br>
       <form id="formu" >
@@ -111,7 +108,7 @@
       <div>
         <h6 class="my-0">Precio</h6>
       </div>
-      <span class="text-muted" id="CostoDeProducto">-</span>
+      <span class="text-muted" id="ProductCost1">-</span>
     </li>
     <li class="list-group-item d-flex justify-content-between lh-condensed">
       <div>
@@ -120,8 +117,8 @@
       <span class="text-muted" id="comision">-</span>
     </li>
     <li class="list-group-item d-flex justify-content-between">
-      <span>Total ($)</span>
-      <strong id="CostoTotal">-</strong>
+      <span><strong>Total</strong></span>
+      <strong id="TotalCost">-</strong>
     </li>
   </ul>
   <hr class="mb-4">
@@ -149,8 +146,8 @@
         </div>
         <div class="container">
           <div>
-            <form id="pago">
-              <input type="radio" form="pago" name="pago" id="transf" onclick="Deshabilitar()">
+            <form id="pay">
+              <input type="radio" form="pay" name="pay" id="transf" onclick="Deshabilitar()">
               <h5 class="text-warning"><strong>Transacción bancaria</strong></h5></input>
             </form><br>
             <p class="muted text-justify">
@@ -161,7 +158,7 @@
           </div>
           <hr>
           <div>
-            <input type="radio" form="pago" name="pago" id="tarj" onclick="Deshabilitar()">
+            <input type="radio" form="pay" name="pay" id="tarj" onclick="Deshabilitar()">
             <h5 class="text-primary"><strong>Tarjeta de crédito </strong></h5><br></button>
             <input form="formu" id="regex-input7" type="text" placeholder="C.I" pattern="[0-9]{8}" required><span
               id="matche1"></span><br>

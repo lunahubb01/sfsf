@@ -18,7 +18,7 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between" id="header">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="boxlist">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -32,9 +32,7 @@
       <h3 id="productName"></h3>
       <hr class="my-3">
       
-
-
-      <div id="foticas">
+      <div id="littlePictures">
         <img class="peques" src="img/prod1.jpg" alt="">
         <img class="peques" src="img/prod1_2.jpg" alt="">
         <img class="peques" src="img/prod1_4.jpg" alt="">
@@ -70,7 +68,7 @@
         </a>
       </div>
     
-      <dl id="carru" >  
+      <dl>  
 
         <dt>Descripción</dt>
         <dd>
@@ -94,7 +92,7 @@
 
         <dt>Más productos..</dt>
           <dd>
-          <div id="productos" style="display: flex;"></div><br>
+          <div id="products" style="display: flex;"></div><br>
         </dd>    
         
         <dt>Comentarios y puntuación</dt>
@@ -103,7 +101,7 @@
           <p>Añadir comentario:</p>    
         <form  id="addcomment"></form>
         <p id="user1"></p>
-        <textarea  name="cuerpo" id="cuerpo" rows="3" colums="20" ></textarea>
+        <textarea  name="comment" id="comment1" rows="3" colums="20" ></textarea>
         <br>      
         <label for="punt">Puntuación:</label>
         <input type="number" min="0" max="5" id="punt" >
